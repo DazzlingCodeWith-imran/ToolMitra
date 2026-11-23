@@ -1,0 +1,6 @@
+{
+  "name": "ToolMitra",
+  "description": "Free Online Tools for Everyday Work — fast, private, browser-based utilities for images, PDFs, QR codes, text, and date calculations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

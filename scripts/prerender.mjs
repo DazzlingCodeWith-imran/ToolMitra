@@ -123,6 +123,44 @@ for (const routeMeta of ALL_PRERENDER_ROUTES) {
   }
 }
 
+const publicRobotsPath = path.join(publicDir, 'robots.txt');
+const existingRobotsTxt = fs.existsSync(publicRobotsPath)
+  ? fs.readFileSync(publicRobotsPath, 'utf-8')
+  : 'User-agent: *\nAllow: /\n';
+
+function upsertSitemapDirective(content, sitemapLine) {
+  const eol = content.includes('\r\n') ? '\r\n' : '\n';
+  const lines = content.split(/\r?\n/);
+  const sitemapPattern = /^\s*sitemap\s*:/i;
+
+  let replaced = false;
+  const nextLines = [];
+
+  for (const line of lines) {
+    if (sitemapPattern.test(line)) {
+      if (!replaced) {
+        nextLines.push(sitemapLine);
+        replaced = true;
+      }
+    } else {
+      nextLines.push(line);
+    }
+  }
+
+  if (!replaced) {
+    while (nextLines.length > 0 && nextLines[nextLines.length - 1] === '') {
+      nextLines.pop();
+    }
+    if (nextLines.length > 0) {
+      nextLines.push('');
+    }
+    nextLines.push(sitemapLine);
+    nextLines.push('');
+  }
+
+  return nextLines.join(eol);
+}
+
 fs.mkdirSync(publicDir, { recursive: true });
 
 if (resolvedOrigin) {
@@ -143,29 +181,23 @@ ${sitemapEntries}
 </urlset>
 `;
 
-  const robotsTxt = `User-agent: *
-Allow: /
-
-Sitemap: ${resolvedOrigin}/sitemap.xml
-`;
+  const robotsTxt = upsertSitemapDirective(
+    existingRobotsTxt,
+    `Sitemap: ${resolvedOrigin}/sitemap.xml`,
+  );
 
   fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml, 'utf-8');
   fs.writeFileSync(path.join(distDir, 'robots.txt'), robotsTxt, 'utf-8');
   fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapXml, 'utf-8');
-  fs.writeFileSync(path.join(publicDir, 'robots.txt'), robotsTxt, 'utf-8');
 
   console.log(
     `Prerendered ${ALL_PRERENDER_ROUTES.length} routes, sitemap.xml (${INDEXABLE_ROUTES.length} URLs), and robots.txt for ${resolvedOrigin}`,
   );
 } else {
-  const robotsTxt = `User-agent: *
-Allow: /
-`;
   for (const staleSitemap of [path.join(distDir, 'sitemap.xml'), path.join(publicDir, 'sitemap.xml')]) {
     if (fs.existsSync(staleSitemap)) fs.unlinkSync(staleSitemap);
   }
-  fs.writeFileSync(path.join(distDir, 'robots.txt'), robotsTxt, 'utf-8');
-  fs.writeFileSync(path.join(publicDir, 'robots.txt'), robotsTxt, 'utf-8');
+  fs.writeFileSync(path.join(distDir, 'robots.txt'), existingRobotsTxt, 'utf-8');
 
   console.warn(
     `Prerendered ${ALL_PRERENDER_ROUTES.length} routes without a site origin (set VITE_SITE_URL or deploy on Vercel to emit canonicals and sitemap.xml).`,

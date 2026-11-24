@@ -1,2 +1,32 @@
+
+# =====================================
+# ToolMitra - Robots.txt
+# Website: https://tool-mitra-five.vercel.app/
+# =====================================
+
+# Allow all search engine crawlers
 User-agent: *
 Allow: /
+
+# Google Search
+User-agent: Googlebot
+Allow: /
+
+# Bing Search
+User-agent: Bingbot
+Allow: /
+
+# OpenAI Search Crawling
+User-agent: OAI-SearchBot
+Allow: /
+
+# ChatGPT User-Requested Browsing
+User-agent: ChatGPT-User
+Allow: /
+
+# Block AI Training Crawler
+User-agent: GPTBot
+Disallow: /
+
+# Sitemap Location
+Sitemap: https://tool-mitra-five.vercel.app/sitemap.xml

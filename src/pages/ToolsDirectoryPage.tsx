@@ -42,7 +42,7 @@ export function ToolsDirectoryPage() {
     <>
       <SeoHead
         title="All Free Online PDF & Utility Tools – ToolMitra Directory"
-        description="Browse ToolMitra's collection of 25 free, browser-based tools for PDF organization, compression, conversion, editing, redaction, OCR, QR codes, writing, and calculators."
+        description={`Browse ToolMitra's collection of ${TOOLS.length} free, browser-based tools for PDF organization, compression, conversion, editing, redaction, OCR, image conversion, QR codes, writing, and calculators.`}
         path="/tools"
       />
 

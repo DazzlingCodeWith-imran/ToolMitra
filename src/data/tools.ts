@@ -6,6 +6,7 @@ export type ToolCategory =
   | 'Edit PDF'
   | 'PDF Security'
   | 'PDF Intelligence'
+  | 'Image Tools'
   | 'Generators'
   | 'Text & Writing'
   | 'Calculators';
@@ -20,6 +21,9 @@ export type ToolIconName =
   | 'Minimize2'
   | 'Wrench'
   | 'ImageDown'
+  | 'ImagePlus'
+  | 'ArrowLeftRight'
+  | 'Maximize2'
   | 'FileImage'
   | 'Images'
   | 'ScanLine'
@@ -69,6 +73,7 @@ export const TOOL_CATEGORIES: Array<'All' | ToolCategory> = [
   'Edit PDF',
   'PDF Security',
   'PDF Intelligence',
+  'Image Tools',
   'Generators',
   'Text & Writing',
   'Calculators',
@@ -1049,6 +1054,169 @@ export const TOOLS: ToolDefinition[] = [
         question: 'Can I save a list of all text changes?',
         answer:
           'Yes. Click Download Diff Report (.md) to save a page-by-page summary of added and removed text lines.',
+      },
+    ],
+  },
+
+  // ===================== IMAGE TOOLS =====================
+  {
+    id: 'image-to-webp',
+    slug: 'image-to-webp',
+    path: '/tools/image-to-webp',
+    name: 'Image to WebP Converter',
+    shortDescription:
+      'Convert JPG, JPEG, PNG, and WebP images to WebP in your browser with quality control (0–100), preserved transparency, and live size comparison.',
+    category: 'Image Tools',
+    iconName: 'ImagePlus',
+    primaryKeyword: 'image to WebP converter',
+    secondaryKeywords: ['JPG to WebP', 'PNG to WebP', 'convert image to webp in browser'],
+    seoTitle: 'Image to WebP Converter Free – JPG & PNG to WebP Online | ToolMitra',
+    seoDescription:
+      'Convert JPG, JPEG, PNG, and WebP images to WebP locally in your browser. Adjust quality (0–100), preserve transparent backgrounds, compare file sizes, and download.',
+    supportedFormats: 'Input: JPG, JPEG, PNG, WebP · Output: WebP (.webp)',
+    limitsSummary: 'Single image up to 25 MB · HTML5 Canvas conversion in browser memory',
+    howToSteps: [
+      'Drop or select one JPG, JPEG, PNG, or WebP image from your device.',
+      'Adjust the WebP quality slider (0–100) or pick a quick preset and re-convert if needed.',
+      'Compare the preview, original size, converted WebP size, and size difference before downloading.',
+    ],
+    faqs: [
+      {
+        question: 'How does this image to WebP converter work without uploading files?',
+        answer:
+          'ToolMitra decodes your image into browser memory, draws it onto a transparent HTML5 Canvas, and encodes the WebP blob directly on your device—no images are sent to external servers.',
+      },
+      {
+        question: 'Are transparent backgrounds preserved during PNG to WebP conversion?',
+        answer:
+          'Yes. When converting PNG or WebP images containing transparent or semi-transparent pixels, the alpha channel is retained cleanly in the WebP output. JPG files do not carry transparency.',
+      },
+      {
+        question: 'Will converting JPG to WebP or PNG to WebP always create a smaller file?',
+        answer:
+          'Not in every case. WebP often achieves noticeable savings on photos and web graphics, but small icons, already tightly compressed images, or quality settings near 95–100 can produce a larger file. ToolMitra reports the exact byte and percentage difference after each conversion.',
+      },
+      {
+        question: 'What browser limitations apply to Canvas WebP conversion?',
+        answer:
+          'Animated PNG or animated WebP files flatten to their first frame because Canvas encodes single still frames. Very large high-megapixel images may also be constrained by device browser memory, and very old browsers without WebP Canvas encoding cannot export .webp files.',
+      },
+    ],
+  },
+  {
+    id: 'webp-to-png',
+    slug: 'webp-to-png',
+    path: '/tools/webp-to-png',
+    name: 'WebP to PNG & JPG Converter',
+    shortDescription:
+      'Convert WebP images to lossless PNG (with transparency) or compact JPG in your browser with customizable background fills and instant download.',
+    category: 'Image Tools',
+    iconName: 'ArrowLeftRight',
+    primaryKeyword: 'WebP to PNG converter',
+    secondaryKeywords: ['WebP to JPG', 'convert webp to png online', 'webp converter browser'],
+    seoTitle: 'WebP to PNG & JPG Converter Free – Browser Tool | ToolMitra',
+    seoDescription:
+      'Convert WebP images to transparent PNG or JPG directly in your browser without uploads. Pick JPG background fills, adjust quality, compare sizes, and download.',
+    supportedFormats: 'Input: WebP, PNG, JPG · Output: PNG (.png) or JPG (.jpg)',
+    limitsSummary: 'Single image up to 25 MB · Lossless PNG or quality-controlled JPG output',
+    howToSteps: [
+      'Choose PNG (Lossless) to keep transparency or JPG for smaller opaque compatibility.',
+      'Drop or select a WebP, PNG, or JPG file from your device.',
+      'Compare the preview and actual file size difference, then download your converted image.',
+    ],
+    faqs: [
+      {
+        question: 'Does WebP to PNG conversion keep transparent backgrounds?',
+        answer:
+          'Yes. Converting a transparent WebP to PNG retains full alpha transparency inside HTML5 Canvas without adding a solid backdrop.',
+      },
+      {
+        question: 'Why did my converted PNG become larger than the original WebP file?',
+        answer:
+          'PNG uses lossless compression, whereas WebP often uses lossy compression. Re-encoding a compressed WebP into lossless PNG commonly increases file size—switch to JPG if you need compact file weights.',
+      },
+      {
+        question: 'What happens to transparency when converting WebP to JPG?',
+        answer:
+          'JPG does not support alpha transparency, so ToolMitra lets you choose a clean white, slate, black, or custom hex background fill color behind transparent areas.',
+      },
+    ],
+  },
+  {
+    id: 'image-resizer',
+    slug: 'image-resizer',
+    path: '/tools/image-resizer',
+    name: 'Image Resizer',
+    shortDescription:
+      'Resize JPG, PNG, and WebP images by exact pixel dimensions, aspect-ratio lock, scale percentage, or web presets locally in your browser.',
+    category: 'Image Tools',
+    iconName: 'Maximize2',
+    primaryKeyword: 'image resizer online free',
+    secondaryKeywords: ['resize jpg png webp', 'change image dimensions pixels', 'photo resizer browser'],
+    seoTitle: 'Image Resizer Online Free – Resize JPG, PNG & WebP Pixels | ToolMitra',
+    seoDescription:
+      'Resize JPG, PNG, and WebP images by custom width and height, scale percentage, or presets locally in your browser without uploading files.',
+    supportedFormats: 'Input: JPG, JPEG, PNG, WebP · Output: Original, WebP, JPG, or PNG',
+    limitsSummary: 'Single image up to 25 MB · Output dimensions 16 px to 8,192 px',
+    howToSteps: [
+      'Upload or drag and drop a JPG, PNG, or WebP image from your device.',
+      'Enter custom Width/Height pixels with aspect ratio lock, or click a scale or dimension preset.',
+      'Pick your output format and quality, apply the resize, and download the finished file.',
+    ],
+    faqs: [
+      {
+        question: 'Can I resize an image without distorting its proportions?',
+        answer:
+          'Yes. Keep Aspect Ratio Locked enabled so updating either width or height automatically calculates the matching dimension cleanly.',
+      },
+      {
+        question: 'What happens when I upscale a small photo to a larger pixel size?',
+        answer:
+          'Upscaling stretches existing pixels using browser bicubic/high-quality smoothing, which increases canvas dimensions but cannot invent new fine detail that was not in the original file.',
+      },
+      {
+        question: 'Are resized images uploaded anywhere?',
+        answer:
+          'No. Resampling happens entirely on an HTML5 Canvas in your browser memory.',
+      },
+    ],
+  },
+  {
+    id: 'image-cropper',
+    slug: 'image-cropper',
+    path: '/tools/image-cropper',
+    name: 'Image Crop & Rotate',
+    shortDescription:
+      'Crop images to freeform or preset aspect ratios (1:1, 4:3, 16:9, 3:4), rotate in 90° steps, and flip horizontally or vertically in your browser.',
+    category: 'Image Tools',
+    iconName: 'Crop',
+    primaryKeyword: 'crop image online free',
+    secondaryKeywords: ['rotate flip image browser', '1:1 square image cropper', 'crop jpg png webp'],
+    seoTitle: 'Image Crop & Rotate Online Free – Aspect Presets & Flip | ToolMitra',
+    seoDescription:
+      'Crop, rotate 90°, and flip JPG, PNG, and WebP photos in your browser with aspect-ratio presets (1:1, 4:3, 16:9, 3:4) and live preview.',
+    supportedFormats: 'Input: JPG, JPEG, PNG, WebP · Output: Original, PNG, JPG, or WebP',
+    limitsSummary: 'Single image up to 25 MB · Client-side HTML5 Canvas crop and transform',
+    howToSteps: [
+      'Drop or choose a JPG, PNG, or WebP image to open the visual crop frame.',
+      'Optionally rotate 90°, flip horizontally or vertically, and pick an aspect preset or adjust crop sliders.',
+      'Click Crop & Export Image to review output pixel dimensions and download immediately.',
+    ],
+    faqs: [
+      {
+        question: 'Which aspect ratio presets are included?',
+        answer:
+          'You can switch between Freeform framing, 1:1 Square, 4:3 Standard, 16:9 Widescreen, and 3:4 Portrait, or fine-tune offsets and crop dimensions manually.',
+      },
+      {
+        question: 'Can I change output format after cropping?',
+        answer:
+          'Yes. Keep the original format or export your cropped image directly as lossless PNG, JPG, or WebP.',
+      },
+      {
+        question: 'Does rotating or cropping upload my photo to a server?',
+        answer:
+          'No. Canvas transformations execute locally inside your browser tab.',
       },
     ],
   },

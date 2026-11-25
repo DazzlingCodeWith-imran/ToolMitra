@@ -1,4 +1,5 @@
 import {
+  ArrowLeftRight,
   CalendarClock,
   ClipboardList,
   Crop,
@@ -12,8 +13,10 @@ import {
   GitCompare,
   Hash,
   ImageDown,
+  ImagePlus,
   Images,
   LayoutGrid,
+  Maximize2,
   Minimize2,
   PenTool,
   QrCode,
@@ -52,6 +55,12 @@ export function ToolIcon({ name, className = 'h-5 w-5' }: ToolIconProps) {
       return <Wrench className={className} aria-hidden="true" />;
     case 'ImageDown':
       return <ImageDown className={className} aria-hidden="true" />;
+    case 'ImagePlus':
+      return <ImagePlus className={className} aria-hidden="true" />;
+    case 'ArrowLeftRight':
+      return <ArrowLeftRight className={className} aria-hidden="true" />;
+    case 'Maximize2':
+      return <Maximize2 className={className} aria-hidden="true" />;
     case 'FileImage':
       return <FileImage className={className} aria-hidden="true" />;
     case 'Images':

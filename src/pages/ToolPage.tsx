@@ -6,6 +6,9 @@ import { CropPdfTool } from '@/src/components/tools/CropPdfTool';
 import { EditPdfTool } from '@/src/components/tools/EditPdfTool';
 import { HtmlToPdfTool } from '@/src/components/tools/HtmlToPdfTool';
 import { ImageCompressorTool } from '@/src/components/tools/ImageCompressorTool';
+import { ImageCropperTool } from '@/src/components/tools/ImageCropperTool';
+import { ImageResizerTool } from '@/src/components/tools/ImageResizerTool';
+import { ImageToWebpTool } from '@/src/components/tools/ImageToWebpTool';
 import { JpgToPdfTool } from '@/src/components/tools/JpgToPdfTool';
 import { MergePdfTool } from '@/src/components/tools/MergePdfTool';
 import { OcrPdfTool } from '@/src/components/tools/OcrPdfTool';
@@ -24,6 +27,7 @@ import { SignPdfTool } from '@/src/components/tools/SignPdfTool';
 import { SplitPdfTool } from '@/src/components/tools/SplitPdfTool';
 import { ToolPageLayout } from '@/src/components/tools/ToolPageLayout';
 import { WatermarkPdfTool } from '@/src/components/tools/WatermarkPdfTool';
+import { WebpToPngTool } from '@/src/components/tools/WebpToPngTool';
 import { WordCounterTool } from '@/src/components/tools/WordCounterTool';
 import { getToolBySlug } from '@/src/data/tools';
 import { NotFoundPage } from './NotFoundPage';
@@ -64,6 +68,18 @@ export function ToolPage() {
       break;
     case 'image-compressor':
       toolWorkspace = <ImageCompressorTool />;
+      break;
+    case 'image-to-webp':
+      toolWorkspace = <ImageToWebpTool />;
+      break;
+    case 'webp-to-png':
+      toolWorkspace = <WebpToPngTool />;
+      break;
+    case 'image-resizer':
+      toolWorkspace = <ImageResizerTool />;
+      break;
+    case 'image-cropper':
+      toolWorkspace = <ImageCropperTool />;
       break;
     case 'jpg-to-pdf':
       toolWorkspace = <JpgToPdfTool />;

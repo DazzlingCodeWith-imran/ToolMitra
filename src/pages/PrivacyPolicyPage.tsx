@@ -29,8 +29,10 @@ export function PrivacyPolicyPage() {
             <p className="mt-2">
               {SITE_CONFIG.name} is designed so that its utilities—including PDF tools (merge,
               split, compress, organize, rotate, crop, repair, convert, edit, watermark, page
-              numbers, forms, sign, redact, compare, OCR, workflows), the Image Compressor, QR Code
-              Generator, Word Counter, and Age Calculator—run directly inside your web browser.
+              numbers, forms, sign, redact, compare, OCR, workflows), the Image Compressor, Image
+              to WebP Converter, WebP to PNG &amp; JPG Converter, Image Resizer, Image Crop &amp;
+              Rotate, QR Code Generator, Word Counter, and Age Calculator—run directly inside your
+              web browser.
               Files you select, text you paste, QR inputs you encode, and dates you calculate stay
               in your device&apos;s memory and are not uploaded to our servers for processing or
               storage.

@@ -52,8 +52,8 @@ export function HomePage() {
               Fast browser utilities without uploads, signups, or clutter.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-300">
-              Compress images, convert JPG files to PDF, create scannable QR codes, analyze text,
-              and calculate exact dates directly on your device.
+              Merge, split, compress, edit, sign, redact, and OCR PDFs alongside image optimization,
+              UPI QR codes, word counts, and exact date calculations directly on your device.
             </p>
 
             {/* Search & Primary CTA */}
@@ -71,7 +71,7 @@ export function HomePage() {
                   type="search"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search tools (e.g., compress, pdf, qr, word)..."
+                  placeholder="Search tools (e.g., merge pdf, compress, ocr, upi qr)..."
                   className="h-11 w-full rounded-lg border border-slate-300 bg-white pr-4 pl-10 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-2 focus:outline-blue-600/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-blue-400"
                 />
               </div>

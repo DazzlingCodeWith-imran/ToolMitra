@@ -27,11 +27,13 @@ export function PrivacyPolicyPage() {
               1. Local Browser Processing
             </h2>
             <p className="mt-2">
-              {SITE_CONFIG.name} is designed so that its core utilities—including the Image
-              Compressor, JPG to PDF Converter, QR Code Generator, Word Counter, and Age
-              Calculator—run directly in your web browser. Files you select, text you paste, QR
-              inputs you encode, and dates you calculate are processed in your device&apos;s memory
-              and are not uploaded to our servers for processing or storage.
+              {SITE_CONFIG.name} is designed so that its utilities—including PDF tools (merge,
+              split, compress, organize, rotate, crop, repair, convert, edit, watermark, page
+              numbers, forms, sign, redact, compare, OCR, workflows), the Image Compressor, QR Code
+              Generator, Word Counter, and Age Calculator—run directly inside your web browser.
+              Files you select, text you paste, QR inputs you encode, and dates you calculate stay
+              in your device&apos;s memory and are not uploaded to our servers for processing or
+              storage.
             </p>
           </section>
 
@@ -66,14 +68,16 @@ export function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-              4. Hosting Logs, Web Fonts, Analytics &amp; Advertising Readiness
+              4. Hosting Logs, Web Fonts, OCR Models, Analytics &amp; Advertising
             </h2>
             <p className="mt-2">
               When hosted on static/edge web infrastructure, standard HTTP access logs (such as IP
               address, browser user-agent, and requested URL) may be temporarily processed by the
               hosting provider for security, rate limiting, and reliability. Typography stylesheets
               and font files are loaded from Google Fonts, which receives standard browser HTTP
-              request metadata.
+              request metadata. When you explicitly run the OCR PDF tool, your browser fetches the
+              selected open-source Tesseract language training data file client-side while keeping
+              your PDF document strictly in local memory.
             </p>
             <p className="mt-3">
               If Google Analytics or Google AdSense is enabled on a deployed instance in the future,

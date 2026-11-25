@@ -38,7 +38,7 @@ export function Footer() {
               Popular Tools
             </h2>
             <ul className="mt-4 space-y-2.5 text-sm">
-              {TOOLS.map((tool) => (
+              {TOOLS.slice(0, 8).map((tool) => (
                 <li key={tool.id}>
                   <Link
                     to={tool.path}

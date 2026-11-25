@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { Layout } from '@/src/components/layout/Layout';
 import { AboutPage } from '@/src/pages/AboutPage';
 import { ContactPage } from '@/src/pages/ContactPage';
@@ -29,6 +29,7 @@ export function AppRoutes() {
         <Route path="/" element={<HomePage />} />
         <Route path="/tools" element={<ToolsDirectoryPage />} />
         <Route path="/tools/:slug" element={<ToolPage />} />
+        <Route path="/merge-pdf" element={<Navigate to="/tools/merge-pdf" replace />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
